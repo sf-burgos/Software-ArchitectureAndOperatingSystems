@@ -1,0 +1,83 @@
+/Desarrollado por 2141666
+/Leer tres coeficientes positivos a, b, c, evaluar el polinomio a * X ^ 2 + b * X + c, mostrar e/resultado en pantalla. X es un número positivo y esta definido en memoria con el valor inicial /que usted decida.
+
+input /lectura
+store a /entra de la variable a
+input /lectura
+store b /entrada de la variable b
+input /lectura
+store c /entrada de la variable c
+input /lectura 
+store x /entrada de la variable c
+
+load numeroDeVecesAmultiplicar /asignamos los numeroDeVecesAmultiplicar
+add x / le adicionamos el valor de x
+store numeroDeVecesAmultiplicar /seguimos con el funcionamiento
+
+while, load numeroDeVecesAmultiplicar /utilizamos un while donde verificaremos que
+skipcond 800 /numeroDeVecesAmultiplicar sea 0
+jump end / si se cumple saltara al final
+load bx /sino, serguira con le proceso de bx
+add b / adiciona b
+store bx / entrada de la variable bx
+load numeroDeVecesAmultiplicar /volvemos a leer el numeroDeVecesAmultiplicar
+subt UNO /pero le restamos 1=uno (ver al final)
+store numeroDeVecesAmultiplicar / terminamos con ello, y el programa decide 
+jump while / salta while 
+end, load bx /terminamos el proceso
+
+/El siguiente while hace lo mismo que el anterior, pero para el caso ax^2
+load numeroDeVecesAmultiplicar 
+add DOS
+store numeroDeVecesAmultiplicar
+
+whileXX, load numeroDeVecesAmultiplicar
+skipcond 800
+jump endXX
+load xElevadoAlCuadrado
+add x
+store xElevadoAlCuadrado
+load numeroDeVecesAmultiplicar
+subt UNO
+store numeroDeVecesAmultiplicar
+jump whileXX
+
+endXX, load xElevadoAlCuadrado
+
+load numeroDeVecesAmultiplicar
+add xElevadoAlCuadrado
+store numeroDeVecesAmultiplicar
+
+whileAX, load numeroDeVecesAmultiplicar
+skipcond 800
+jump endAX
+load ax
+add a
+store ax
+load numeroDeVecesAmultiplicar
+subt UNO
+store numeroDeVecesAmultiplicar
+jump whileAX
+endAX, load ax
+
+load RESULTADO /tomamos esta variable para el resultado de f(x)
+add ax /sumamos ax^2, pero por facilidad solo le pusimos ax a la variable 
+add bx /sumamos bx
+add c / por ultimo sumamos c
+store RESULTADO / finalizamos el proceso de con RESULTADO
+output / salida del programa 
+halt	/ terminamos el programa
+/ asigacion de variables
+UNO, dec 	1
+DOS, dec 	2
+x, dec 		0
+a, DEC 		0
+b, DEC 		0
+c, DEC 		0
+bx, dec 	0
+ax, dec 	0
+xElevadoAlCuadrado, dec 	0
+RESULTADO, dec 	0
+numeroDeVecesAmultiplicar, dec 0
+
+/ https://github.com/mathewmariani/MARIE-Examples

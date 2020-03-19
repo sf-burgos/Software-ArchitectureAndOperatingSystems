@@ -1,0 +1,63 @@
+CLEAR
+LOAD n
+ADD UNO
+STORE n1
+STORE n
+inicioMultiplicacion, LOAD n
+SUBT UNO
+STORE n
+SKIPCOND 800
+JUMP finalMultiplicacion
+LOAD resultado
+ADD n1
+STORE resultado
+JUMP inicioMultiplicacion
+finalMultiplicacion, LOAD resultado
+inicioDivision, LOAD resultado
+SKIPCOND 800
+JUMP finDivision
+SUBT DOS
+STORE resultado
+LOAD resultadoFinal
+ADD UNO
+STORE resultadoFinal
+JUMP inicioDivision
+finDivision, LOAD resultadoFinal
+OUTPUT
+LOAD n1
+SUBT UNO
+STORE n
+
+LOAD n
+inicioSuma, SKIPCOND 800
+JUMP finalSuma
+LOAD SUMA
+ADD n
+STORE SUMA
+LOAD n
+SUBT UNO
+STORE n
+JUMP inicioSuma
+
+finalSuma, LOAD SUMA
+OUTPUT
+
+
+HALT
+
+n, HEX 8
+SUMA, HEX 0
+resultadoFinal, HEX 0
+
+
+
+
+
+
+
+
+
+n1, HEX 0
+resultado, HEX 0
+UNO, HEX 1
+DOS, HEX 2
