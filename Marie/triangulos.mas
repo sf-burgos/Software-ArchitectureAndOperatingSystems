@@ -1,0 +1,347 @@
+	input 
+	store x1
+	input
+	store y1
+	input
+	store x2
+	input 	
+	store y2
+	input 
+	store x3
+	input 	
+	store y3
+	load x1
+	store dis_x1
+	load x2
+	store dis_x2
+	load y1
+	store dis_y1
+	load y2
+	store dis_y2
+	jns dis
+	//output
+	store AB2
+//sacamos la primera raiz
+	store div_acum
+	load cien 
+	store div_two
+	jns div
+	store raiz_val
+	jns raiz
+	//output
+	store AB
+	load x1
+	store dis_x1
+	load x3
+	store dis_x2
+	load y1
+	store dis_y1
+	load y3
+	store dis_y2
+	jns dis
+	//output
+	store AC2
+//sacamos la segunda raiz
+	store div_acum
+	load cien 
+	store div_two
+	jns div
+	store raiz_val
+	jns raiz
+	//output
+	store AC
+	load x2
+	store dis_x1
+	load x3
+	store dis_x2
+	load y2
+	store dis_y1
+	load y3
+	store dis_y2
+	jns dis
+	store BC2
+	//output
+//sacamos la tercera raiz
+	store div_acum
+	load cien 
+	store div_two
+	jns div
+	store raiz_val
+	jns raiz
+	//output
+	store BC
+// Aca calculo el maximo de los segmentos.
+	load AC
+	subt AB
+	skipcond 800
+	jump mainOtro
+	load AB
+	store temp1
+	load AC
+	store res_max
+	jump finalMax
+	mainOtro, load AB
+	store res_max
+	load AC
+	store temp1
+	finalMax, load res_max
+	subt BC
+	skipcond 800
+	jump mainotro
+	load BC
+	store temp2
+	jump finalmax
+	mainotro, load res_max
+	store temp2
+	load BC
+	store res_max
+// max de los cuadrados
+	finalmax, load AC2
+	subt AB2
+	skipcond 800
+	jump mainOtro2
+	load AB2
+	store temp12
+	load AC2
+	store res_max2
+	jump finalMax2
+	mainOtro2, load AB2
+	store res_max2
+	load AC2
+	store temp12
+	finalMax2, load res_max2
+	subt BC2
+	skipcond 800
+	jump mainotro2
+	load BC2
+	store temp22
+	jump finalmax2
+	mainotro2, load res_max2
+	store temp22
+	load BC2
+	store res_max2
+//mirar que clase de triangulo es.
+	finalmax2, load res_max
+	//output
+	load temp1
+	//output
+	load temp2
+	//output
+	load res_max2
+	//output
+	load temp12
+	//output
+	load temp22
+	//output
+	load res_max 
+	add temp1
+	subt temp2
+	//output
+	skipcond 800
+	jump noEsTriangulo
+	load res_max
+	add temp2
+	subt temp1
+	//output
+	skipcond 800
+	jump noEsTriangulo
+	load temp2
+	add temp1
+	subt res_max
+	//output
+	skipcond 800
+	jump noEsTriangulo
+	seraRectangulo, load temp12
+	add temp22
+	subt res_max2
+	skipcond 400
+	jump seraAcutangulo
+	esRectangulo, load three
+	store respuesta
+	jump finPrograma
+	seraAcutangulo, load temp12
+	add temp22
+	subt res_max2
+	skipcond 800
+	jump seraObtusangulo
+	esAcutangulo, load one
+	store respuesta
+	jump finPrograma
+	seraObtusangulo, load res_max2
+	subt temp12
+	subt temp22
+	skipcond 800
+	jump noEsTriangulo
+	esObtusangulo, load two
+	store respuesta
+	jump finPrograma	
+	noEsTriangulo, load zero
+	store respuesta
+	finPrograma, load respuesta
+	output
+	halt
+x1, dec 0
+y1, dec 0
+x2, dec 0
+y2, dec 0
+x3, dec 0
+y3, dec 0
+AB, dec 0
+AC, dec 0
+BC, dec 0
+AB2, dec 0
+AC2, dec 0
+BC2, dec 0
+temp1, dec 0
+temp2, dec 0
+res_max, dec 0
+temp12, dec 0
+temp22, dec 0
+res_max2, dec 0
+respuesta, dec 0
+zero, dec -1
+one, dec 1
+two, dec 2
+three, dec 3
+cien, dec 100
+
+dis, 	dec 0
+	clear
+	load dis_x1
+	subt dis_x2
+	store abs_1
+	skipcond 800
+	jns abs
+	store mult_x
+	store mult_y
+	jns mult
+	store dis_resx
+	load dis_y1
+	subt dis_y2
+	store abs_1
+	skipcond 800
+	jns abs
+	store mult_x
+	store mult_y
+	jns mult
+	add dis_resx
+	jumpi dis
+
+dis_x1, dec 0
+dis_x2, dec 0
+dis_y1, dec 0
+dis_y2, dec 0
+dis_resx, dec 0
+dis_rexy, dec 0
+
+abs, 	dec 0
+	clear
+	store abs_i
+	abswhile, add abs_1
+		skipcond 000
+		jump endabs
+		load abs_i
+		add one
+		store abs_i
+		jump abswhile
+	endabs, load abs_i
+	jumpi abs
+
+abs_i, dec 0
+abs_1, dec 0
+
+mult,	 dec 0
+	clear
+	store mult_sum
+	store mult_i
+	multwhile, subt mult_y
+		skipcond 000
+		jump endmult
+		load mult_x
+		add mult_sum
+		store mult_sum
+		load mult_i
+		add one
+		store mult_i
+		jump multwhile
+	endmult, load mult_sum
+	jumpi mult
+
+mult_x, dec 0
+mult_y, dec 0
+mult_i, dec 0
+mult_sum, dec 0
+
+raiz, 	dec 0
+	clear
+	store raiz_n2
+	store raiz_2n
+	store raiz_n
+
+	while_buscar, load raiz_val
+	subt raiz_n2
+	skipcond 800
+	jump endbuscar
+		load raiz_n
+		add one
+		store raiz_n
+		store mult_x
+		store mult_y
+		jns mult
+		store raiz_n2
+		jump while_buscar
+	endbuscar, load two
+	store mult_x
+	load raiz_n
+	store mult_y
+	jns mult
+	store raiz_2n
+	store div_two
+	load raiz_val
+	add raiz_n2
+	store div_acum
+	jns div
+	store raiz_res	
+	jumpi raiz
+
+raiz_val, dec 0
+raiz_n2, dec 0
+raiz_2n, dec 0
+raiz_n, dec 0
+raiz_res, dec 0
+
+div, 	dec 0
+	clear
+	store div_i
+	while_div, load div_acum
+		subt div_two
+		skipcond 000
+		jump operar
+		jump end_while
+		operar, store div_acum
+		load div_i
+		add div_one
+		store div_i
+		jump while_div
+	end_while, load div_i
+	jumpi div
+
+div_two, dec 0
+div_i, dec 0
+div_acum, dec 0 
+div_one, dec 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

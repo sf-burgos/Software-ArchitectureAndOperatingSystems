@@ -1,0 +1,52 @@
+		ORG			0
+		LOAD		X
+		STORE		add_a
+		LOAD 		Y
+		STORE		add_b
+		LOAD		Z
+		STORE		add_c
+		JNS		add
+		OUTPUT
+		HALT
+
+add_a,	DEC			0
+add_b,	DEC			0
+add_c,  DEC			0
+add,	HEX			0
+a,	dec			0	
+b,	dec			0
+p,	dec			0
+q, 	dec			0
+d,	dec			0
+
+		LOAD		add_a
+		ADD		add_b
+		ADD		add_c
+		JUMPI		add
+		LOAD		p
+		ADD		add
+		JUMPI		p
+
+div,		dec		0
+		clear
+		store		d
+while,		load		p
+		subt		q
+		skipcond	000
+		jump		cuerpo
+		jump		endwhile
+cuerpo,		load		p
+		subt		q
+		store		p
+		load		d
+		add		one
+		store		d
+		jump		while
+endwhile,	load		d
+		jumpi		div
+		
+
+/ variables
+X,		DEC			1
+Y,		DEC			2
+Z,		DEC			3

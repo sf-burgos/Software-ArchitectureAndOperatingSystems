@@ -1,0 +1,66 @@
+	input
+	store	a
+	input
+	store	b
+	load	a
+	store	p
+	load	b
+	store	q
+	jns	div
+	output
+	load	a
+	store	r
+	load	b
+	store	s
+	jns	mod
+	output
+	halt
+a,	dec	0
+b,	dec	0
+/ div (p, q) return quotient p / q
+/    d = 0
+/    while (p >= q)           
+/	p -= q
+/	d++
+/    endwhile
+/    return d
+div,		dec		0
+		clear
+		store		d
+while,		load		p
+		subt		q
+		skipcond	000
+		jump		cuerpo
+		jump		endwhile
+cuerpo,		load		p
+		subt		q
+		store		p
+		load		d
+		add		one
+		store		d
+		jump		while
+endwhile,	load		d
+		jumpi		div
+p,		dec		0
+q,		dec		0
+d,		dec		0
+one,		dec		1
+/ mod (r, s) return residue r / s
+/    while (r >= s)
+/	r -= s
+/    endwhile
+/    return r
+mod,		dec		0
+while1,		load		r
+		subt		s
+		skipcond	000
+		jump		cuerpo2
+		jump		endwhile1
+cuerpo2,	load		r
+		subt		s
+		store		r
+		jump		while1
+endwhile1,	load		r
+		jumpi		mod
+r,		dec		0
+s,		dec		0
