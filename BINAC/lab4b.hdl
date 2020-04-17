@@ -1,0 +1,39 @@
+CHIP resta{
+	IN ah[15], al[15], bh[15], bl[15];
+	OUT sh[15], sl[15];
+
+	PARTS:
+	complemento(ah=bh, al=bl, sh[0]=bch0, sh[1]=bch1, sh[2]=bch2, sh[3]=bch3, sh[4]=bch4, sh[5]=bch5, sh[6]=bch6, sh[7]=bch7, sh[8]=bch8, sh[9]=bch9, sh[10]=bch10, sh[11]=bch11, sh[12]=bch12, sh[13]=bch13, sh[14]=bch14, sl[0]=bcl0, sl[1]=bcl1, sl[2]=bcl2, sl[3]=bcl3, sl[4]=bcl4, sl[5]=bcl5, sl[6]=bcl6, sl[7]=bcl7, sl[8]=bcl8, sl[9]=bcl9, sl[10]=bcl10, sl[11]=bcl11, sl[12]=bcl12, sl[13]=bcl13, sl[14]=bcl14);
+	
+
+	FullAdder(a=al[1], b=bcl1, c=c2, s=sl[1], car=c3);
+    	FullAdder(a=al[0], b=bcl0, c=false, s=sl[0], car=c2);
+	FullAdder(a=al[2], b=bcl2, c=c3, s=sl[2], car=c4);
+	FullAdder(a=al[3], b=bcl3, c=c4, s=sl[3], car=c5);
+	FullAdder(a=al[4], b=bcl4, c=c5, s=sl[4], car=c6);
+	FullAdder(a=al[5], b=bcl5, c=c6, s=sl[5], car=c7);
+	FullAdder(a=al[6], b=bcl6, c=c7, s=sl[6], car=c8);
+	FullAdder(a=al[7], b=bcl7, c=c8, s=sl[7], car=c9);
+	FullAdder(a=al[8], b=bcl8, c=c9, s=sl[8], car=c10);
+	FullAdder(a=al[9], b=bcl9, c=c10, s=sl[9], car=c11);
+	FullAdder(a=al[10], b=bcl10, c=c11, s=sl[10], car=c12);
+	FullAdder(a=al[11], b=bcl11, c=c12, s=sl[11], car=c13);
+	FullAdder(a=al[12], b=bcl12, c=c13, s=sl[12], car=c14);
+	FullAdder(a=al[13], b=bcl13, c=c14, s=sl[13], car=c15);
+	FullAdder(a=al[14], b=bcl14, c=c15, s=sl[14], car=c16);	
+	FullAdder(a=ah[1], b=bch1, c=c17, s=sh[1], car=c18);
+    FullAdder(a=ah[0], b=bch0, c=c16, s=sh[0], car=c17);
+	FullAdder(a=ah[2], b=bch2, c=c18, s=sh[2], car=c19);
+	FullAdder(a=ah[3], b=bch3, c=c19, s=sh[3], car=c20);
+	FullAdder(a=ah[4], b=bch4, c=c20, s=sh[4], car=c21);
+	FullAdder(a=ah[5], b=bch5, c=c21, s=sh[5], car=c22);
+	FullAdder(a=ah[6], b=bch6, c=c22, s=sh[6], car=c23);
+	FullAdder(a=ah[7], b=bch7, c=c23, s=sh[7], car=c24);
+	FullAdder(a=ah[8], b=bch8, c=c24, s=sh[8], car=c25);
+	FullAdder(a=ah[9], b=bch9, c=c25, s=sh[9], car=c26);
+	FullAdder(a=ah[10], b=bch10, c=c26, s=sh[10], car=c27);
+	FullAdder(a=ah[11], b=bch11, c=c27, s=sh[11], car=c28);
+	FullAdder(a=ah[12], b=bch12, c=c28, s=sh[12], car=c29);
+	FullAdder(a=ah[13], b=bch13, c=c29, s=sh[13], car=c30);
+	FullAdder(a=ah[14], b=bch14, c=c30, s=sh[14], car=c31);
+}

@@ -1,0 +1,82 @@
+     Assembly listing for: division.mas
+                Assembled: Tue Mar 24 11:17:16 COT 2020
+
+         |           ORG 0               
+000 102A |           LOAD X              
+001 2009 |           STORE add_a         
+002 102B |           LOAD Y              
+003 200A |           STORE add_b         
+004 102C |           LOAD Z              
+005 200B |           STORE add_c         
+006 000C |           JNS add             
+007 6000 |           OUTPUT              
+008 7000 |           HALT                
+         |                              
+009 0000 |  add_a    DEC 0               
+00A 0000 |  add_b    DEC 0               
+00B 0000 |  add_c    DEC 0               
+00C 0000 |  add      HEX 0               
+00D 0000 |  a        DEC 0               
+00E 0000 |  b        DEC 0               
+00F 0000 |  p        DEC 0               
+010 0000 |  q        DEC 0               
+011 0000 |  d        DEC 0               
+         |                              
+012 1009 |           LOAD add_a          
+013 300A |           ADD add_b           
+014 300B |           ADD add_c           
+015 C00C |           JUMPI add           
+016 100F |           LOAD p              
+017 300C |           ADD add             
+018 C00F |           JUMPI p             
+         |                              
+019 0000 |  div      DEC 0               
+01A A000 |           CLEAR               
+01B 2011 |           STORE d             
+01C 100F |  while    LOAD p              
+01D 4010 |           SUBT q              
+01E 8000 |           SKIPCOND 000        
+01F 9021 |           JUMP cuerpo         
+020 9028 |           JUMP endwhile       
+021 100F |  cuerpo   LOAD p              
+022 4010 |           SUBT q              
+023 200F |           STORE p             
+024 1011 |           LOAD d              
+025 3??? |           ADD one             
+   **** Operand undefined.
+026 2011 |           STORE d             
+027 901C |           JUMP while          
+028 1011 |  endwhile LOAD d              
+029 C019 |           JUMPI div           
+         |                              		
+         |                              
+         |                              / variables
+02A 0001 |  X        DEC 1               
+02B 0002 |  Y        DEC 2               
+02C 0003 |  Z        DEC 3               
+
+1 error found.  Assembly unsuccessful.
+
+         SYMBOL TABLE
+         ----------------------------------------------------
+          Symbol   | Defined | References 
+         ----------+---------+-------------------------------
+          X        |   02A   | 000
+          Y        |   02B   | 002
+          Z        |   02C   | 004
+          a        |   00D   | 
+          add      |   00C   | 006, 015, 017
+          add_a    |   009   | 001, 012
+          add_b    |   00A   | 003, 013
+          add_c    |   00B   | 005, 014
+          b        |   00E   | 
+          cuerpo   |   021   | 01F
+          d        |   011   | 01B, 024, 026, 028
+          div      |   019   | 029
+          endwhile |   028   | 020
+          p        |   00F   | 016, 018, 01C, 021, 023
+          q        |   010   | 01D, 022
+          while    |   01C   | 027
+         ----------------------------------------------------
+
+

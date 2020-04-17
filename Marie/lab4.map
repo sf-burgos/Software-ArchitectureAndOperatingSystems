@@ -1,0 +1,17 @@
+ -------------------------------
+ Symbol               | Location
+ ---------------------+---------
+ DOS                  |   030
+ SUMA                 |   02B
+ UNO                  |   02F
+ finDivision          |   018
+ finalMultiplicacion  |   00E
+ finalSuma            |   027
+ inicioDivision       |   00F
+ inicioMultiplicacion |   005
+ inicioSuma           |   01E
+ n                    |   02A
+ n1                   |   02D
+ resultado            |   02E
+ resultadoFinal       |   02C
+

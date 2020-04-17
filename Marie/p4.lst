@@ -1,0 +1,37 @@
+     Assembly listing for: p4.mas
+                Assembled: Thu Mar 26 12:45:25 COT 2020
+
+000 A000 |         CLEAR             
+001 100E |         LOAD x            
+002 4010 |         SUBT uno          
+003 8000 |         SKIPCOND 000      
+004 900D |         JUMP endif        
+005 100E |         LOAD x            
+006 4011 |         SUBT diez         
+007 8800 |         SKIPCOND 800      
+008 900D |         JUMP endif        
+009 100E |         LOAD x            
+00A 300E |         ADD x             
+00B 200F |         STORE y           
+00C 6000 |         OUTPUT            
+00D 7000 |  endif  HALT              
+         |                          
+00E 0001 |  x      DEC 1             
+00F 0000 |  y      DEC 0             
+010 0001 |  uno    DEC 1             
+011 000A |  diez   DEC 10            
+
+Assembly successful.
+
+         SYMBOL TABLE
+         --------------------------------------------------
+          Symbol | Defined | References 
+         --------+---------+-------------------------------
+          diez   |   011   | 006
+          endif  |   00D   | 004, 008
+          uno    |   010   | 002
+          x      |   00E   | 001, 005, 009, 00A
+          y      |   00F   | 00B
+         --------------------------------------------------
+
+

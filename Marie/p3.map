@@ -1,0 +1,10 @@
+ -----------------
+ Symbol | Location
+ -------+---------
+ EVALUE |   00B
+ IVALUE |   00A
+ end    |   008
+ if     |   000
+ if2    |   006
+ x      |   009
+

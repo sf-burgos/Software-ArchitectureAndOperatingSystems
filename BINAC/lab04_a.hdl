@@ -1,0 +1,73 @@
+CHIP Complemento2{
+	IN ah[16],al[16];
+	OUT sh[16],sl[16];
+	
+	PARTS:
+	Not (in=ah[15], out=outah15);
+	Not (in=ah[14], out=outah14);
+	Not (in=ah[13], out=outah13);
+	Not (in=ah[12], out=outah12);
+	Not (in=ah[11], out=outah11);
+	Not (in=ah[10], out=outah10);
+	Not (in=ah[9], out=outah9);
+	Not (in=ah[8], out=outah8);
+	Not (in=ah[7], out=outah7);
+	Not (in=ah[6], out=outah6);
+	Not (in=ah[5], out=outah5);
+	Not (in=ah[4], out=outah4);
+	Not (in=ah[3], out=outah3);
+	Not (in=ah[2], out=outah2);
+	Not (in=ah[1], out=outah1);
+	Not (in=ah[0], out=outah0);
+	
+	Not (in=al[15], out=outal15);
+	Not (in=al[14], out=outal14);
+	Not (in=al[13], out=outal13);
+	Not (in=al[12], out=outal12);
+	Not (in=al[11], out=outal11);
+	Not (in=al[10], out=outal10);
+	Not (in=al[9], out=outal9);
+	Not (in=al[8], out=outal8);
+	Not (in=al[7], out=outal7);
+	Not (in=al[6], out=outal6);
+	Not (in=al[5], out=outal5);
+	Not (in=al[4], out=outal4);
+	Not (in=al[3], out=outal3);
+	Not (in=al[2], out=outal2);
+	Not (in=al[1], out=outal1);
+	Not (in=al[0], out=outal0);
+	
+	FullAdder(a=outal0,b=true,c=false,sum=sl[0],carry=carry0);
+	FullAdder(a=outal1,b=carry0,c=false,sum=sl[1],carry=carry1);
+	FullAdder(a=outal2,b=carry1,c=false,sum=sl[2],carry=carry2);
+	FullAdder(a=outal3,b=carry2,c=false,sum=sl[3],carry=carry3);
+	FullAdder(a=outal4,b=carry3,c=false,sum=sl[4],carry=carry4);
+	FullAdder(a=outal5,b=carry4,c=false,sum=sl[5],carry=carry5);
+	FullAdder(a=outal6,b=carry5,c=false,sum=sl[6],carry=carry6);
+	FullAdder(a=outal7,b=carry6,c=false,sum=sl[7],carry=carry7);
+	FullAdder(a=outal8,b=carry7,c=false,sum=sl[8],carry=carry8);
+	FullAdder(a=outal9,b=carry8,c=false,sum=sl[9],carry=carry9);
+	FullAdder(a=outal10,b=carry9,c=false,sum=sl[10],carry=carry10);
+	FullAdder(a=outal11,b=carry10,c=false,sum=sl[11],carry=carry11);
+	FullAdder(a=outal12,b=carry11,c=false,sum=sl[12],carry=carry12);
+	FullAdder(a=outal13,b=carry12,c=false,sum=sl[13],carry=carry13);
+	FullAdder(a=outal14,b=carry13,c=false,sum=sl[14],carry=carry14);
+	FullAdder(a=outal15,b=carry14,c=false,sum=sl[15],carry=carry15);
+	
+	FullAdder(a=outah0,b=carry15,c=false,sum=sh[0],carry=carry0a);
+	FullAdder(a=outah1,b=carry0a,c=false,sum=sh[1],carry=carry1a);
+	FullAdder(a=outah2,b=carry1a,c=false,sum=sh[2],carry=carry2a);
+	FullAdder(a=outah3,b=carry2a,c=false,sum=sh[3],carry=carry3a);
+	FullAdder(a=outah4,b=carry3a,c=false,sum=sh[4],carry=carry4a);
+	FullAdder(a=outah5,b=carry4a,c=false,sum=sh[5],carry=carry5a);
+	FullAdder(a=outah6,b=carry5a,c=false,sum=sh[6],carry=carry6a);
+	FullAdder(a=outah7,b=carry6a,c=false,sum=sh[7],carry=carry7a);
+	FullAdder(a=outah8,b=carry7a,c=false,sum=sh[8],carry=carry8a);
+	FullAdder(a=outah9,b=carry8a,c=false,sum=sh[9],carry=carry9a);
+	FullAdder(a=outah10,b=carry9a,c=false,sum=sh[10],carry=carry10a);
+	FullAdder(a=outah11,b=carry10a,c=false,sum=sh[11],carry=carry11a);
+	FullAdder(a=outah12,b=carry11a,c=false,sum=sh[12],carry=carry12a);
+	FullAdder(a=outah13,b=carry12a,c=false,sum=sh[13],carry=carry13a);
+	FullAdder(a=outah14,b=carry13a,c=false,sum=sh[14],carry=carry14a);
+	FullAdder(a=outah15,b=carry14a,c=false,sum=sh[15],carry=carry15a);	
+}

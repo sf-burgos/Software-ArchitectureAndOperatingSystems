@@ -1,0 +1,20 @@
+CHIP RAM8-30{
+    IN z2[15], inl[15], z3, address[3];
+    OUT h[15], l[15];
+
+    PARTS:
+    Mux15(a=z1, b=z2, sel=z3, out=z4, out=z5, out=z6, out=z7, out=z8, out=z9, out=z10, out=z11);
+    Mux15(a=zz, b=inl, sel=z3, out=qq, out=rr, out=ss, out=tt, out=uu, out=vv, out=xx, out=yy);
+    DMux8Way(in=z3, sel=address[0..2], a=aa, b=bb, c=cc, d=dd, e=ee, f=ff, g=gg, h=hh);
+    Register15(z2=z4, inl=qq, z3=aa, h=h0, l=l0);
+    Register15(z2=z5, inl=rr, z3=bb, h=h1, l=l1);
+    Register15(z2=z6, inl=ss, z3=cc, h=h2, l=l2);
+    Register15(z2=z7, inl=tt, z3=dd, h=h3, l=l3);
+    Register15(z2=z8, inl=uu, z3=ee, h=h4, l=l4);
+    Register15(z2=z9, inl=vv, z3=ff, h=h5, l=l5);
+    Register15(z2=z10, inl=xx, z3=gg, h=h6, l=l6);
+    Register15(z2=z11, inl=yy, z3=hh, h=h7, l=l7);
+    Mux8Way15(a=h0, b=h1, c=h2, d=h3, e=h4, f=h5, g=h6, h=h7,sel=address[0..2], out=z1, out= h);
+    Mux8Way15(a=l0, b=l1, c=l2, d=l3, e=l4, f=l5, g=l6, h=l7,sel=address[0..2], out=zz, out= l);
+
+}

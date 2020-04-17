@@ -1,0 +1,10 @@
+CHIP Mux8Way15 {
+
+    IN  a[15], b[15], c[15], d[15],
+        e[15], f[15], g[15], h[15],
+        sel[3];
+
+    OUT out[15];
+
+    BUILTIN Mux8Way16;
+}

@@ -1,0 +1,437 @@
+     Assembly listing for: triangulos.mas
+                Assembled: Tue Mar 24 21:43:42 COT 2020
+
+000 5000 |                  INPUT                      
+001 20A1 |                  STORE x1                   
+002 5000 |                  INPUT                      
+003 20A2 |                  STORE y1                   
+004 5000 |                  INPUT                      
+005 20A3 |                  STORE x2                   
+006 5000 |                  INPUT                      
+007 20A4 |                  STORE y2                   
+008 5000 |                  INPUT                      
+009 20A5 |                  STORE x3                   
+00A 5000 |                  INPUT                      
+00B 20A6 |                  STORE y3                   
+00C 10A1 |                  LOAD x1                    
+00D 20CE |                  STORE dis_x1               
+00E 10A3 |                  LOAD x2                    
+00F 20CF |                  STORE dis_x2               
+010 10A2 |                  LOAD y1                    
+011 20D0 |                  STORE dis_y1               
+012 10A4 |                  LOAD y2                    
+013 20D1 |                  STORE dis_y2               
+014 00B9 |                  JNS dis                    
+         |                                            	//output
+015 20AA |                  STORE AB2                  
+         |                                            //sacamos la primera raiz
+016 212A |                  STORE div_acum             
+017 10B8 |                  LOAD cien                  
+018 2128 |                  STORE div_two              
+019 0119 |                  JNS div                    
+01A 2114 |                  STORE raiz_val             
+01B 00F6 |                  JNS raiz                   
+         |                                            	//output
+01C 20A7 |                  STORE AB                   
+01D 10A1 |                  LOAD x1                    
+01E 20CE |                  STORE dis_x1               
+01F 10A5 |                  LOAD x3                    
+020 20CF |                  STORE dis_x2               
+021 10A2 |                  LOAD y1                    
+022 20D0 |                  STORE dis_y1               
+023 10A6 |                  LOAD y3                    
+024 20D1 |                  STORE dis_y2               
+025 00B9 |                  JNS dis                    
+         |                                            	//output
+026 20AB |                  STORE AC2                  
+         |                                            //sacamos la segunda raiz
+027 212A |                  STORE div_acum             
+028 10B8 |                  LOAD cien                  
+029 2128 |                  STORE div_two              
+02A 0119 |                  JNS div                    
+02B 2114 |                  STORE raiz_val             
+02C 00F6 |                  JNS raiz                   
+         |                                            	//output
+02D 20A8 |                  STORE AC                   
+02E 10A3 |                  LOAD x2                    
+02F 20CE |                  STORE dis_x1               
+030 10A5 |                  LOAD x3                    
+031 20CF |                  STORE dis_x2               
+032 10A4 |                  LOAD y2                    
+033 20D0 |                  STORE dis_y1               
+034 10A6 |                  LOAD y3                    
+035 20D1 |                  STORE dis_y2               
+036 00B9 |                  JNS dis                    
+037 20AC |                  STORE BC2                  
+         |                                            	//output
+         |                                            //sacamos la tercera raiz
+038 212A |                  STORE div_acum             
+039 10B8 |                  LOAD cien                  
+03A 2128 |                  STORE div_two              
+03B 0119 |                  JNS div                    
+03C 2114 |                  STORE raiz_val             
+03D 00F6 |                  JNS raiz                   
+         |                                            	//output
+03E 20A9 |                  STORE BC                   
+         |                                            // Aca calculo el maximo de los segmentos.
+03F 10A8 |                  LOAD AC                    
+040 40A7 |                  SUBT AB                    
+041 8800 |                  SKIPCOND 800               
+042 9048 |                  JUMP mainOtro              
+043 10A7 |                  LOAD AB                    
+044 20AD |                  STORE temp1                
+045 10A8 |                  LOAD AC                    
+046 20AF |                  STORE res_max              
+047 904C |                  JUMP finalMax              
+048 10A7 |  mainOtro        LOAD AB                    
+049 20AF |                  STORE res_max              
+04A 10A8 |                  LOAD AC                    
+04B 20AD |                  STORE temp1                
+04C 10AF |  finalMax        LOAD res_max               
+04D 40A9 |                  SUBT BC                    
+04E 8800 |                  SKIPCOND 800               
+04F 9053 |                  JUMP mainotro              
+050 10A9 |                  LOAD BC                    
+051 20AE |                  STORE temp2                
+052 9057 |                  JUMP finalmax              
+053 10AF |  mainotro        LOAD res_max               
+054 20AE |                  STORE temp2                
+055 10A9 |                  LOAD BC                    
+056 20AF |                  STORE res_max              
+         |                                            // max de los cuadrados
+057 10AB |  finalmax        LOAD AC2                   
+058 40AA |                  SUBT AB2                   
+059 8800 |                  SKIPCOND 800               
+05A 9060 |                  JUMP mainOtro2             
+05B 10AA |                  LOAD AB2                   
+05C 20B0 |                  STORE temp12               
+05D 10AB |                  LOAD AC2                   
+05E 20B2 |                  STORE res_max2             
+05F 9064 |                  JUMP finalMax2             
+060 10AA |  mainOtro2       LOAD AB2                   
+061 20B2 |                  STORE res_max2             
+062 10AB |                  LOAD AC2                   
+063 20B0 |                  STORE temp12               
+064 10B2 |  finalMax2       LOAD res_max2              
+065 40AC |                  SUBT BC2                   
+066 8800 |                  SKIPCOND 800               
+067 906B |                  JUMP mainotro2             
+068 10AC |                  LOAD BC2                   
+069 20B1 |                  STORE temp22               
+06A 906F |                  JUMP finalmax2             
+06B 10B2 |  mainotro2       LOAD res_max2              
+06C 20B1 |                  STORE temp22               
+06D 10AC |                  LOAD BC2                   
+06E 20B2 |                  STORE res_max2             
+         |                                            //mirar que clase de triangulo es.
+06F 10AF |  finalmax2       LOAD res_max               
+         |                                            	//output
+070 10AD |                  LOAD temp1                 
+         |                                            	//output
+071 10AE |                  LOAD temp2                 
+         |                                            	//output
+072 10B2 |                  LOAD res_max2              
+         |                                            	//output
+073 10B0 |                  LOAD temp12                
+         |                                            	//output
+074 10B1 |                  LOAD temp22                
+         |                                            	//output
+075 10AF |                  LOAD res_max               
+076 30AD |                  ADD temp1                  
+077 40AE |                  SUBT temp2                 
+         |                                            	//output
+078 8800 |                  SKIPCOND 800               
+079 909C |                  JUMP noEsTriangulo         
+07A 10AF |                  LOAD res_max               
+07B 30AE |                  ADD temp2                  
+07C 40AD |                  SUBT temp1                 
+         |                                            	//output
+07D 8800 |                  SKIPCOND 800               
+07E 909C |                  JUMP noEsTriangulo         
+07F 10AE |                  LOAD temp2                 
+080 30AD |                  ADD temp1                  
+081 40AF |                  SUBT res_max               
+         |                                            	//output
+082 8800 |                  SKIPCOND 800               
+083 909C |                  JUMP noEsTriangulo         
+084 10B0 |  seraRectangulo  LOAD temp12                
+085 30B1 |                  ADD temp22                 
+086 40B2 |                  SUBT res_max2              
+087 8400 |                  SKIPCOND 400               
+088 908C |                  JUMP seraAcutangulo        
+089 10B7 |  esRectangulo    LOAD three                 
+08A 20B3 |                  STORE respuesta            
+08B 909E |                  JUMP finPrograma           
+08C 10B0 |  seraAcutangulo  LOAD temp12                
+08D 30B1 |                  ADD temp22                 
+08E 40B2 |                  SUBT res_max2              
+08F 8800 |                  SKIPCOND 800               
+090 9094 |                  JUMP seraObtusangulo       
+091 10B5 |  esAcutangulo    LOAD one                   
+092 20B3 |                  STORE respuesta            
+093 909E |                  JUMP finPrograma           
+094 10B2 |  seraObtusangulo LOAD res_max2              
+095 40B0 |                  SUBT temp12                
+096 40B1 |                  SUBT temp22                
+097 8800 |                  SKIPCOND 800               
+098 909C |                  JUMP noEsTriangulo         
+099 10B6 |  esObtusangulo   LOAD two                   
+09A 20B3 |                  STORE respuesta            
+09B 909E |                  JUMP finPrograma           
+09C 10B4 |  noEsTriangulo   LOAD zero                  
+09D 20B3 |                  STORE respuesta            
+09E 10B3 |  finPrograma     LOAD respuesta             
+09F 6000 |                  OUTPUT                     
+0A0 7000 |                  HALT                       
+0A1 0000 |  x1              DEC 0                      
+0A2 0000 |  y1              DEC 0                      
+0A3 0000 |  x2              DEC 0                      
+0A4 0000 |  y2              DEC 0                      
+0A5 0000 |  x3              DEC 0                      
+0A6 0000 |  y3              DEC 0                      
+0A7 0000 |  AB              DEC 0                      
+0A8 0000 |  AC              DEC 0                      
+0A9 0000 |  BC              DEC 0                      
+0AA 0000 |  AB2             DEC 0                      
+0AB 0000 |  AC2             DEC 0                      
+0AC 0000 |  BC2             DEC 0                      
+0AD 0000 |  temp1           DEC 0                      
+0AE 0000 |  temp2           DEC 0                      
+0AF 0000 |  res_max         DEC 0                      
+0B0 0000 |  temp12          DEC 0                      
+0B1 0000 |  temp22          DEC 0                      
+0B2 0000 |  res_max2        DEC 0                      
+0B3 0000 |  respuesta       DEC 0                      
+0B4 FFFF |  zero            DEC -1                     
+0B5 0001 |  one             DEC 1                      
+0B6 0002 |  two             DEC 2                      
+0B7 0003 |  three           DEC 3                      
+0B8 0064 |  cien            DEC 100                    
+         |                                            
+0B9 0000 |  dis             DEC 0                      
+0BA A000 |                  CLEAR                      
+0BB 10CE |                  LOAD dis_x1                
+0BC 40CF |                  SUBT dis_x2                
+0BD 20E1 |                  STORE abs_1                
+0BE 8800 |                  SKIPCOND 800               
+0BF 00D4 |                  JNS abs                    
+0C0 20F2 |                  STORE mult_x               
+0C1 20F3 |                  STORE mult_y               
+0C2 00E2 |                  JNS mult                   
+0C3 20D2 |                  STORE dis_resx             
+0C4 10D0 |                  LOAD dis_y1                
+0C5 40D1 |                  SUBT dis_y2                
+0C6 20E1 |                  STORE abs_1                
+0C7 8800 |                  SKIPCOND 800               
+0C8 00D4 |                  JNS abs                    
+0C9 20F2 |                  STORE mult_x               
+0CA 20F3 |                  STORE mult_y               
+0CB 00E2 |                  JNS mult                   
+0CC 30D2 |                  ADD dis_resx               
+0CD C0B9 |                  JUMPI dis                  
+         |                                            
+0CE 0000 |  dis_x1          DEC 0                      
+0CF 0000 |  dis_x2          DEC 0                      
+0D0 0000 |  dis_y1          DEC 0                      
+0D1 0000 |  dis_y2          DEC 0                      
+0D2 0000 |  dis_resx        DEC 0                      
+0D3 0000 |  dis_rexy        DEC 0                      
+         |                                            
+0D4 0000 |  abs             DEC 0                      
+0D5 A000 |                  CLEAR                      
+0D6 20E0 |                  STORE abs_i                
+0D7 30E1 |  abswhile        ADD abs_1                  
+0D8 8000 |                  SKIPCOND 000               
+0D9 90DE |                  JUMP endabs                
+0DA 10E0 |                  LOAD abs_i                 
+0DB 30B5 |                  ADD one                    
+0DC 20E0 |                  STORE abs_i                
+0DD 90D7 |                  JUMP abswhile              
+0DE 10E0 |  endabs          LOAD abs_i                 
+0DF C0D4 |                  JUMPI abs                  
+         |                                            
+0E0 0000 |  abs_i           DEC 0                      
+0E1 0000 |  abs_1           DEC 0                      
+         |                                            
+0E2 0000 |  mult            DEC 0                      
+0E3 A000 |                  CLEAR                      
+0E4 20F5 |                  STORE mult_sum             
+0E5 20F4 |                  STORE mult_i               
+0E6 40F3 |  multwhile       SUBT mult_y                
+0E7 8000 |                  SKIPCOND 000               
+0E8 90F0 |                  JUMP endmult               
+0E9 10F2 |                  LOAD mult_x                
+0EA 30F5 |                  ADD mult_sum               
+0EB 20F5 |                  STORE mult_sum             
+0EC 10F4 |                  LOAD mult_i                
+0ED 30B5 |                  ADD one                    
+0EE 20F4 |                  STORE mult_i               
+0EF 90E6 |                  JUMP multwhile             
+0F0 10F5 |  endmult         LOAD mult_sum              
+0F1 C0E2 |                  JUMPI mult                 
+         |                                            
+0F2 0000 |  mult_x          DEC 0                      
+0F3 0000 |  mult_y          DEC 0                      
+0F4 0000 |  mult_i          DEC 0                      
+0F5 0000 |  mult_sum        DEC 0                      
+         |                                            
+0F6 0000 |  raiz            DEC 0                      
+0F7 A000 |                  CLEAR                      
+0F8 2115 |                  STORE raiz_n2              
+0F9 2116 |                  STORE raiz_2n              
+0FA 2117 |                  STORE raiz_n               
+         |                                            
+0FB 1114 |  while_buscar    LOAD raiz_val              
+0FC 4115 |                  SUBT raiz_n2               
+0FD 8800 |                  SKIPCOND 800               
+0FE 9107 |                  JUMP endbuscar             
+0FF 1117 |                  LOAD raiz_n                
+100 30B5 |                  ADD one                    
+101 2117 |                  STORE raiz_n               
+102 20F2 |                  STORE mult_x               
+103 20F3 |                  STORE mult_y               
+104 00E2 |                  JNS mult                   
+105 2115 |                  STORE raiz_n2              
+106 90FB |                  JUMP while_buscar          
+107 10B6 |  endbuscar       LOAD two                   
+108 20F2 |                  STORE mult_x               
+109 1117 |                  LOAD raiz_n                
+10A 20F3 |                  STORE mult_y               
+10B 00E2 |                  JNS mult                   
+10C 2116 |                  STORE raiz_2n              
+10D 2128 |                  STORE div_two              
+10E 1114 |                  LOAD raiz_val              
+10F 3115 |                  ADD raiz_n2                
+110 212A |                  STORE div_acum             
+111 0119 |                  JNS div                    
+112 2118 |                  STORE raiz_res             
+113 C0F6 |                  JUMPI raiz                 
+         |                                            
+114 0000 |  raiz_val        DEC 0                      
+115 0000 |  raiz_n2         DEC 0                      
+116 0000 |  raiz_2n         DEC 0                      
+117 0000 |  raiz_n          DEC 0                      
+118 0000 |  raiz_res        DEC 0                      
+         |                                            
+119 0000 |  div             DEC 0                      
+11A A000 |                  CLEAR                      
+11B 2129 |                  STORE div_i                
+11C 112A |  while_div       LOAD div_acum              
+11D 4128 |                  SUBT div_two               
+11E 8000 |                  SKIPCOND 000               
+11F 9121 |                  JUMP operar                
+120 9126 |                  JUMP end_while             
+121 212A |  operar          STORE div_acum             
+122 1129 |                  LOAD div_i                 
+123 312B |                  ADD div_one                
+124 2129 |                  STORE div_i                
+125 911C |                  JUMP while_div             
+126 1129 |  end_while       LOAD div_i                 
+127 C119 |                  JUMPI div                  
+         |                                            
+128 0000 |  div_two         DEC 0                      
+129 0000 |  div_i           DEC 0                      
+12A 0000 |  div_acum        DEC 0                      
+12B 0001 |  div_one         DEC 1                      
+         |                                            
+         |                                            
+         |                                            
+         |                                            
+         |                                            
+         |                                            
+         |                                            
+         |                                            
+         |                                            
+         |                                            
+         |                                            
+         |                                            
+         |                                            
+         |                                            
+         |                                            
+
+Assembly successful.
+
+         SYMBOL TABLE
+         -----------------------------------------------------------
+          Symbol          | Defined | References 
+         -----------------+---------+-------------------------------
+          AB              |   0A7   | 01C, 040, 043, 048
+          AB2             |   0AA   | 015, 058, 05B, 060
+          AC              |   0A8   | 02D, 03F, 045, 04A
+          AC2             |   0AB   | 026, 057, 05D, 062
+          BC              |   0A9   | 03E, 04D, 050, 055
+          BC2             |   0AC   | 037, 065, 068, 06D
+          abs             |   0D4   | 0BF, 0C8, 0DF
+          abs_1           |   0E1   | 0BD, 0C6, 0D7
+          abs_i           |   0E0   | 0D6, 0DA, 0DC, 0DE
+          abswhile        |   0D7   | 0DD
+          cien            |   0B8   | 017, 028, 039
+          dis             |   0B9   | 014, 025, 036, 0CD
+          dis_resx        |   0D2   | 0C3, 0CC
+          dis_rexy        |   0D3   | 
+          dis_x1          |   0CE   | 00D, 01E, 02F, 0BB
+          dis_x2          |   0CF   | 00F, 020, 031, 0BC
+          dis_y1          |   0D0   | 011, 022, 033, 0C4
+          dis_y2          |   0D1   | 013, 024, 035, 0C5
+          div             |   119   | 019, 02A, 03B, 111, 127
+          div_acum        |   12A   | 016, 027, 038, 110, 11C, 121
+          div_i           |   129   | 11B, 122, 124, 126
+          div_one         |   12B   | 123
+          div_two         |   128   | 018, 029, 03A, 10D, 11D
+          end_while       |   126   | 120
+          endabs          |   0DE   | 0D9
+          endbuscar       |   107   | 0FE
+          endmult         |   0F0   | 0E8
+          esAcutangulo    |   091   | 
+          esObtusangulo   |   099   | 
+          esRectangulo    |   089   | 
+          finPrograma     |   09E   | 08B, 093, 09B
+          finalMax        |   04C   | 047
+          finalMax2       |   064   | 05F
+          finalmax        |   057   | 052
+          finalmax2       |   06F   | 06A
+          mainOtro        |   048   | 042
+          mainOtro2       |   060   | 05A
+          mainotro        |   053   | 04F
+          mainotro2       |   06B   | 067
+          mult            |   0E2   | 0C2, 0CB, 0F1, 104, 10B
+          mult_i          |   0F4   | 0E5, 0EC, 0EE
+          mult_sum        |   0F5   | 0E4, 0EA, 0EB, 0F0
+          mult_x          |   0F2   | 0C0, 0C9, 0E9, 102, 108
+          mult_y          |   0F3   | 0C1, 0CA, 0E6, 103, 10A
+          multwhile       |   0E6   | 0EF
+          noEsTriangulo   |   09C   | 079, 07E, 083, 098
+          one             |   0B5   | 091, 0DB, 0ED, 100
+          operar          |   121   | 11F
+          raiz            |   0F6   | 01B, 02C, 03D, 113
+          raiz_2n         |   116   | 0F9, 10C
+          raiz_n          |   117   | 0FA, 0FF, 101, 109
+          raiz_n2         |   115   | 0F8, 0FC, 105, 10F
+          raiz_res        |   118   | 112
+          raiz_val        |   114   | 01A, 02B, 03C, 0FB, 10E
+          res_max         |   0AF   | 046, 049, 04C, 053, 056, 06F, 
+                          |         | 075, 07A, 081
+          res_max2        |   0B2   | 05E, 061, 064, 06B, 06E, 072, 
+                          |         | 086, 08E, 094
+          respuesta       |   0B3   | 08A, 092, 09A, 09D, 09E
+          seraAcutangulo  |   08C   | 088
+          seraObtusangulo |   094   | 090
+          seraRectangulo  |   084   | 
+          temp1           |   0AD   | 044, 04B, 070, 076, 07C, 080
+          temp12          |   0B0   | 05C, 063, 073, 084, 08C, 095
+          temp2           |   0AE   | 051, 054, 071, 077, 07B, 07F
+          temp22          |   0B1   | 069, 06C, 074, 085, 08D, 096
+          three           |   0B7   | 089
+          two             |   0B6   | 099, 107
+          while_buscar    |   0FB   | 106
+          while_div       |   11C   | 125
+          x1              |   0A1   | 001, 00C, 01D
+          x2              |   0A3   | 005, 00E, 02E
+          x3              |   0A5   | 009, 01F, 030
+          y1              |   0A2   | 003, 010, 021
+          y2              |   0A4   | 007, 012, 032
+          y3              |   0A6   | 00B, 023, 034
+          zero            |   0B4   | 09C
+         -----------------------------------------------------------
+
+

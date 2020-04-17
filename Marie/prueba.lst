@@ -1,0 +1,95 @@
+     Assembly listing for: prueba.mas
+                Assembled: Tue Mar 24 11:02:51 COT 2020
+
+000 5000 |            INPUT                
+001 2011 |            STORE a              
+002 5000 |            INPUT                
+003 2012 |            STORE b              
+004 1011 |            LOAD a               
+005 2024 |            STORE p              
+006 1012 |            LOAD b               
+007 2025 |            STORE q              
+008 0013 |            JNS div              
+009 6000 |            OUTPUT               
+00A 1011 |            LOAD a               
+00B 2034 |            STORE r              
+00C 1012 |            LOAD b               
+00D 2035 |            STORE s              
+00E 0028 |            JNS mod              
+00F 6000 |            OUTPUT               
+010 7000 |            HALT                 
+011 0000 |  a         DEC 0                
+012 0000 |  b         DEC 0                
+         |                                / div (p, q) return quotient p / q
+         |                                /    d = 0
+         |                                /    while (p >= q)           
+         |                                /	p -= q
+         |                                /	d++
+         |                                /    endwhile
+         |                                /    return d
+013 0000 |  div       DEC 0                
+014 A000 |            CLEAR                
+015 2026 |            STORE d              
+016 1024 |  while     LOAD p               
+017 4025 |            SUBT q               
+018 8000 |            SKIPCOND 000         
+019 901B |            JUMP cuerpo          
+01A 9022 |            JUMP endwhile        
+01B 1024 |  cuerpo    LOAD p               
+01C 4025 |            SUBT q               
+01D 2024 |            STORE p              
+01E 1026 |            LOAD d               
+01F 3027 |            ADD one              
+020 2026 |            STORE d              
+021 9016 |            JUMP while           
+022 1026 |  endwhile  LOAD d               
+023 C013 |            JUMPI div            
+024 0000 |  p         DEC 0                
+025 0000 |  q         DEC 0                
+026 0000 |  d         DEC 0                
+027 0001 |  one       DEC 1                
+         |                                / mod (r, s) return residue r / s
+         |                                /    while (r >= s)
+         |                                /	r -= s
+         |                                /    endwhile
+         |                                /    return r
+028 0000 |  mod       DEC 0                
+029 1034 |  while1    LOAD r               
+02A 4035 |            SUBT s               
+02B 8000 |            SKIPCOND 000         
+02C 902E |            JUMP cuerpo2         
+02D 9032 |            JUMP endwhile1       
+02E 1034 |  cuerpo2   LOAD r               
+02F 4035 |            SUBT s               
+030 2034 |            STORE r              
+031 9029 |            JUMP while1          
+032 1034 |  endwhile1 LOAD r               
+033 C028 |            JUMPI mod            
+034 0000 |  r         DEC 0                
+035 0000 |  s         DEC 0                
+
+Assembly successful.
+
+         SYMBOL TABLE
+         -----------------------------------------------------
+          Symbol    | Defined | References 
+         -----------+---------+-------------------------------
+          a         |   011   | 001, 004, 00A
+          b         |   012   | 003, 006, 00C
+          cuerpo    |   01B   | 019
+          cuerpo2   |   02E   | 02C
+          d         |   026   | 015, 01E, 020, 022
+          div       |   013   | 008, 023
+          endwhile  |   022   | 01A
+          endwhile1 |   032   | 02D
+          mod       |   028   | 00E, 033
+          one       |   027   | 01F
+          p         |   024   | 005, 016, 01B, 01D
+          q         |   025   | 007, 017, 01C
+          r         |   034   | 00B, 029, 02E, 030, 032
+          s         |   035   | 00D, 02A, 02F
+          while     |   016   | 021
+          while1    |   029   | 031
+         -----------------------------------------------------
+
+

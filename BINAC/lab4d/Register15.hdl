@@ -1,0 +1,36 @@
+CHIP Register15 {
+    IN inh[15], inl[15], load;
+    OUT h[15], l[15];
+
+    PARTS:
+    Bit(in=inh[0], load=load, out=h[0]);
+    Bit(in=inh[1], load=load, out=h[1]);
+    Bit(in=inh[2], load=load, out=h[2]);
+    Bit(in=inh[3], load=load, out=h[3]);
+    Bit(in=inh[4], load=load, out=h[4]);
+    Bit(in=inh[5], load=load, out=h[5]);
+    Bit(in=inh[6], load=load, out=h[6]);
+    Bit(in=inh[7], load=load, out=h[7]);
+    Bit(in=inh[8], load=load, out=h[8]);
+    Bit(in=inh[9], load=load, out=h[9]);
+    Bit(in=inh[10], load=load, out=h[10]);
+    Bit(in=inh[11], load=load, out=h[11]);
+    Bit(in=inh[12], load=load, out=h[12]);
+    Bit(in=inh[13], load=load, out=h[13]);
+    Bit(in=inh[14], load=load, out=h[14]);
+    Bit(in=inl[0], load=load, out=l[0]);
+    Bit(in=inl[1], load=load, out=l[1]);
+    Bit(in=inl[2], load=load, out=l[2]);
+    Bit(in=inl[3], load=load, out=l[3]);
+    Bit(in=inl[4], load=load, out=l[4]);
+    Bit(in=inl[5], load=load, out=l[5]);
+    Bit(in=inl[6], load=load, out=l[6]);
+    Bit(in=inl[7], load=load, out=l[7]);
+    Bit(in=inl[8], load=load, out=l[8]);
+    Bit(in=inl[9], load=load, out=l[9]);
+    Bit(in=inl[10], load=load, out=l[10]);
+    Bit(in=inl[11], load=load, out=l[11]);
+    Bit(in=inl[12], load=load, out=l[12]);
+    Bit(in=inl[13], load=load, out=l[13]);
+    Bit(in=inl[14], load=load, out=l[14]);
+}

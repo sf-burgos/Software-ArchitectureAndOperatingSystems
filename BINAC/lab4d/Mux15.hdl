@@ -1,0 +1,7 @@
+CHIP Mux15 {
+
+    IN  a[15], b[15], sel;
+    OUT out[15];
+
+    BUILTIN Mux;
+}

@@ -1,0 +1,39 @@
+     Assembly listing for: p2.mas
+                Assembled: Thu Mar 26 12:00:08 COT 2020
+
+         |                          
+         |                          
+         |                          			
+000 100B |  WHILE  LOAD x            
+001 8400 |         SKIPCOND 400      
+002 9005 |         JUMP DO           
+003 100B |         LOAD x            
+         |                          			
+004 900A |         JUMP END          
+         |                          
+005 100B |  DO     LOAD x            
+006 6000 |         OUTPUT            
+007 400D |         SUBT ONE          
+008 200B |         STORE x           
+009 9000 |         JUMP WHILE        
+         |                          
+00A 7000 |  END    HALT              
+00B 000A |  x      DEC 10            
+00C 0005 |  y      DEC 5             
+00D 0001 |  ONE    DEC 1             
+
+Assembly successful.
+
+         SYMBOL TABLE
+         --------------------------------------------------
+          Symbol | Defined | References 
+         --------+---------+-------------------------------
+          DO     |   005   | 002
+          END    |   00A   | 004
+          ONE    |   00D   | 007
+          WHILE  |   000   | 009
+          x      |   00B   | 000, 003, 005, 008
+          y      |   00C   | 
+         --------------------------------------------------
+
+

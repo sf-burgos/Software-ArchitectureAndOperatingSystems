@@ -1,0 +1,19 @@
+		ORG			0
+
+if,		LOAD 		x			/ LOAD EXP into AC
+		SKIPCOND	400			/ SKIPCOND 400 (if AC = 0)
+		JUMP		if2		/ JUMP to `if2`
+		LOAD		IVALUE  	/ LOAD IVALUE into AC
+		OUTPUT					/ OUTPUT value IVALUE
+		JUMP		end			/ JUMP to `end`
+
+if2,	LOAD		EVALUE	
+	ADD		x	
+		OUTPUT					
+
+end,	HALT					/ HALT
+
+/ variables
+x,	DEC			2
+y,	DEC			10
+EVALUE,	DEC			0

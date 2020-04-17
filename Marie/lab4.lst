@@ -1,0 +1,90 @@
+     Assembly listing for: lab4.mas
+                Assembled: Tue Mar 17 11:47:23 COT 2020
+
+000 A000 |                       CLEAR                           
+001 102A |                       LOAD n                          
+002 302F |                       ADD UNO                         
+003 202D |                       STORE n1                        
+004 202A |                       STORE n                         
+005 102A |  inicioMultiplicacion LOAD n                          
+006 402F |                       SUBT UNO                        
+007 202A |                       STORE n                         
+008 8800 |                       SKIPCOND 800                    
+009 900E |                       JUMP finalMultiplicacion        
+00A 102E |                       LOAD resultado                  
+00B 302D |                       ADD n1                          
+00C 202E |                       STORE resultado                 
+00D 9005 |                       JUMP inicioMultiplicacion       
+00E 102E |  finalMultiplicacion  LOAD resultado                  
+00F 102E |  inicioDivision       LOAD resultado                  
+010 8800 |                       SKIPCOND 800                    
+011 9018 |                       JUMP finDivision                
+012 4030 |                       SUBT DOS                        
+013 202E |                       STORE resultado                 
+014 102C |                       LOAD resultadoFinal             
+015 302F |                       ADD UNO                         
+016 202C |                       STORE resultadoFinal            
+017 900F |                       JUMP inicioDivision             
+018 102C |  finDivision          LOAD resultadoFinal             
+019 6000 |                       OUTPUT                          
+01A 102D |                       LOAD n1                         
+01B 402F |                       SUBT UNO                        
+01C 202A |                       STORE n                         
+         |                                                      
+01D 102A |                       LOAD n                          
+01E 8800 |  inicioSuma           SKIPCOND 800                    
+01F 9027 |                       JUMP finalSuma                  
+020 102B |                       LOAD SUMA                       
+021 302A |                       ADD n                           
+022 202B |                       STORE SUMA                      
+023 102A |                       LOAD n                          
+024 402F |                       SUBT UNO                        
+025 202A |                       STORE n                         
+026 901E |                       JUMP inicioSuma                 
+         |                                                      
+027 102B |  finalSuma            LOAD SUMA                       
+028 6000 |                       OUTPUT                          
+         |                                                      
+         |                                                      
+029 7000 |                       HALT                            
+         |                                                      
+02A 0008 |  n                    HEX 8                           
+02B 0000 |  SUMA                 HEX 0                           
+02C 0000 |  resultadoFinal       HEX 0                           
+         |                                                      
+         |                                                      
+         |                                                      
+         |                                                      
+         |                                                      
+         |                                                      
+         |                                                      
+         |                                                      
+         |                                                      
+02D 0000 |  n1                   HEX 0                           
+02E 0000 |  resultado            HEX 0                           
+02F 0001 |  UNO                  HEX 1                           
+030 0002 |  DOS                  HEX 2                           
+
+Assembly successful.
+
+         SYMBOL TABLE
+         ----------------------------------------------------------------
+          Symbol               | Defined | References 
+         ----------------------+---------+-------------------------------
+          DOS                  |   030   | 012
+          SUMA                 |   02B   | 020, 022, 027
+          UNO                  |   02F   | 002, 006, 015, 01B, 024
+          finDivision          |   018   | 011
+          finalMultiplicacion  |   00E   | 009
+          finalSuma            |   027   | 01F
+          inicioDivision       |   00F   | 017
+          inicioMultiplicacion |   005   | 00D
+          inicioSuma           |   01E   | 026
+          n                    |   02A   | 001, 004, 005, 007, 01C, 01D, 
+                               |         | 021, 023, 025
+          n1                   |   02D   | 003, 00B, 01A
+          resultado            |   02E   | 00A, 00C, 00E, 00F, 013
+          resultadoFinal       |   02C   | 014, 016, 018
+         ----------------------------------------------------------------
+
+

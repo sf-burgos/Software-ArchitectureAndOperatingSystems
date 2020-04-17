@@ -1,0 +1,17 @@
+CHIP RAM512-30 {
+    IN inh[15],inl[15], load, address[9];
+    OUT h[15], l[15];
+
+    PARTS:
+    DMux8Way(in=load, sel=address[0..2], a=aa, b=bb, c=cc, d=dd, e=ee, f=ff, g=gg, h=hh);
+    RAM64-30(inh=inh, inl=inl, load=aa, address=address[3..8], h=h0, l=l0);
+    RAM64-30(inh=inh, inl=inl, load=bb, address=address[3..8], h=h1, l=l1);
+    RAM64-30(inh=inh, inl=inl, load=cc, address=address[3..8], h=h2, l=l2);
+    RAM64-30(inh=inh, inl=inl, load=dd, address=address[3..8], h=h3, l=l3);
+    RAM64-30(inh=inh, inl=inl, load=ee, address=address[3..8], h=h4, l=l4);
+    RAM64-30(inh=inh, inl=inl, load=ff, address=address[3..8], h=h5, l=l5);
+    RAM64-30(inh=inh, inl=inl, load=gg, address=address[3..8], h=h6, l=l6);
+    RAM64-30(inh=inh, inl=inl, load=hh, address=address[3..8], h=h7, l=l7);
+    Mux8Way15(a=h0, b=h1, c=h2, d=h3, e=h4, f=h5, g=h6, h=h7, sel=address[0..2], out=h);
+    Mux8Way15(a=l0, b=l1, c=l2, d=l3, e=l4, f=l5, g=l6, h=l7, sel=address[0..2], out=l);
+}

@@ -1,0 +1,20 @@
+
+
+			
+WHILE,		LOAD		x		
+			SKIPCOND	400
+			JUMP		DO
+			LOAD		x
+			
+			JUMP		END			
+
+DO,			LOAD		x
+			OUTPUT					
+			SUBT		ONE		
+			STORE		x		
+			JUMP		WHILE		
+
+END,		HALT
+x,		DEC			10
+y,		DEC			5
+ONE,		DEC			1

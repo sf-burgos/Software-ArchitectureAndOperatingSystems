@@ -1,0 +1,19 @@
+clear
+Load x
+Subt uno
+skipcond 000
+jump endif
+load x
+subt diez
+skipcond 800
+jump endif
+load x
+add x
+store y
+output
+endif, Halt
+
+x, dec 1
+y, dec 0
+uno, dec 1
+diez, dec 10

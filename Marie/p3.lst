@@ -1,0 +1,39 @@
+     Assembly listing for: p3.mas
+                Assembled: Thu Mar 26 12:24:05 COT 2020
+
+         |         ORG 0             
+         |                          
+000 100A |  if     LOAD x           / LOAD EXP into AC
+001 8400 |         SKIPCOND 400     / SKIPCOND 400 (if AC = 0)
+002 9006 |         JUMP if2         / JUMP to `if2`
+003 1??? |         LOAD IVALUE      / LOAD IVALUE into AC
+   **** Operand undefined.
+004 6000 |         OUTPUT           / OUTPUT value IVALUE
+005 9009 |         JUMP end         / JUMP to `end`
+         |                          
+006 100C |  if2    LOAD EVALUE       
+007 300A |         ADD x             
+008 6000 |         OUTPUT            
+         |                          
+009 7000 |  end    HALT             / HALT
+         |                          
+         |                          / variables
+00A 0002 |  x      DEC 2             
+00B 000A |  y      DEC 10            
+00C 0000 |  EVALUE DEC 0             
+
+1 error found.  Assembly unsuccessful.
+
+         SYMBOL TABLE
+         --------------------------------------------------
+          Symbol | Defined | References 
+         --------+---------+-------------------------------
+          EVALUE |   00C   | 006
+          end    |   009   | 005
+          if     |   000   | 
+          if2    |   006   | 002
+          x      |   00A   | 000, 007
+          y      |   00B   | 
+         --------------------------------------------------
+
+

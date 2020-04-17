@@ -1,0 +1,20 @@
+ --------------------
+ Symbol    | Location
+ ----------+---------
+ a         |   011
+ b         |   012
+ cuerpo    |   01B
+ cuerpo2   |   02E
+ d         |   026
+ div       |   013
+ endwhile  |   022
+ endwhile1 |   032
+ mod       |   028
+ one       |   027
+ p         |   024
+ q         |   025
+ r         |   034
+ s         |   035
+ while     |   016
+ while1    |   029
+
