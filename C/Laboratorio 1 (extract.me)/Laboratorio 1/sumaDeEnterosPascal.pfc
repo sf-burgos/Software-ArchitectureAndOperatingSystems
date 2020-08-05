@@ -1,0 +1,14 @@
+program ejercicio1;
+var
+	num1:integer;
+	num2:integer;
+	resultado:integer;
+begin
+	writeln('Primer numero:');
+	readln(num1);
+	writeln('Segundo numero:');
+	readln(num2);	
+	resultado := num1+num2;
+	writeln('Resultado:');
+	writeln(resultado);
+end.

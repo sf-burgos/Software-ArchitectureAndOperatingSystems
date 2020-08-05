@@ -1,0 +1,18 @@
+program ejercicio2;
+var
+	numero1:real;
+	numero2:real;
+begin
+	writeln('Primer numero:');
+	readln(numero1);
+	writeln('Segundo numero:');
+	readln(numero2);
+	writeln('Numero mayor:');
+	if (numero1 > numero2) then
+	begin
+		writeln(numero1);
+	end
+	else writeln(numero2);
+end.
+
+

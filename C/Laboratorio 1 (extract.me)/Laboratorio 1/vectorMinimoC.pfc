@@ -1,0 +1,22 @@
+program vectorMinimoC;
+var
+	i: integer;
+	minimo: real;
+	t:integer;
+	vector: array[0..100]of real;
+begin
+	readln(t);
+	for i:=0 to t-1 do
+	begin 
+		readln(vector[i]);
+	end;
+	minimo:=vector[0];
+	for i:=1 to t-1 do
+	begin
+		if (vector[i]<minimo)then
+		begin
+			minimo:=vector[i];
+		end
+	end;
+	writeln('Numero minimo el vector que ingreso es: ',minimo);	
+end.

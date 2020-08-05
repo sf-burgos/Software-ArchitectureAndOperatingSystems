@@ -1,0 +1,218 @@
+- Pascal-FC for IBM PC compatibles - 
+- GNU Compiler Version P5.2.1.2
+
+G L Davies  &  A Burns, University of York
+G Ospina, Escuela Colombiana de Ingenieria
+
+Compiler listing
+
+    1     0 program ejercicio5;
+    2     0 var
+    3     0    num1,num2:real;
+    4     0    opc:integer;
+    5     0 
+    6     0 function suma(a,b:real):real;
+    7     0 begin
+    8     0    writeln('Resultado:',a+b);
+    9     7 end;
+   10     8 
+   11     8 function resta(a,b:real):real;
+   12     8 begin
+   13     8    writeln('Resultado:',a-b);
+   14    15 end;
+   15    16 
+   16    16 function multiplicacion(a,b:real):real;
+   17    16 begin
+   18    16    writeln('Resultado:'a*b);
+***********                        ^ 5 -
+   19    19 end;
+   20    20 
+   21    20 function division(a,b:real):real;
+   22    20 begin
+   23    20    if(b=0)then
+   24    25    begin
+   25    25       writeln('No es posible dividir por cero');
+   26    28    end
+   27    28    else writeln('Resultado:',a/b);
+   28    36 end;
+   29    37 
+   30    37 procedure menu;
+   31    37 begin
+   32    37    writeln('----------------------');
+   33    40    writeln(Â'     CALCULADORA);
+***********            ^27
+   34    40    writeln('');
+***********^29       ^28  ^ 5 
+   35    44    writeln('1. Sumar');
+   36    47    writeln('2. Restar');
+   37    50    writeln('3. Multiplicar');
+   38    53    writeln('4. Dividir');
+   39    56    writeln('5. Salir');
+   40    59    writeln('');
+***********             ^29 
+   41    62 end;
+   42    63 
+   43    63 begin
+   44    63    opc:=0;
+   45    66    while (opc!=5)do
+***********              ^28 
+   46    70    begin 
+   47    70       menu;
+   48    72       writeln('Ingrese la opcion:);
+   49    72       readln(opc);
+***********^29         ^28   ^ 5 
+   50    76       writeln('Primer numero:);
+   51    76       readln(num1);
+***********^29         ^28    ^ 5 
+   52    80       writeln('Segundo numero:);
+   53    80       readln(num2);
+***********^29         ^28    ^ 5 
+   54    84       if (opc = 1) then suma(num1,num2);
+***********                             ^ 3 --------
+   55    88       if (opc = 2) then resta(num1,num2);
+***********                              ^ 3 --------
+   56    92       if (opc = 3) then multiplicacion(num2,num2);
+***********                                       ^ 3 --------
+   57    96       if (opc = 4) then division(num1,num2);
+***********                                 ^ 3 --------
+   58   100    end
+   59   100          
+   60   100 end.
+
+ Error diagnostics
+
+E3 -  type error
+E5 -  ')' expected
+E27 -  illegal character
+E28 -  unexpected symbol
+E29 -  string expected
+
+
+
+Symbol table
+
+    name       link      objekt       type         ref      nrm  lev  adr  aux
+
+ 45 _main        44     procedure   notyp           2      True    0   63    0
+ 46 any           0     variable    synch           0      True    1    5    0
+ 47 num1         46     variable    real            0      True    1    5    0
+ 48 num2         47     variable    real            0      True    1    6    0
+ 49 opc          48     variable    integer         0      True    1    7    0
+ 50 suma         49     function    real            3      True    1    0    0
+ 51 a             0     variable    real            0      True    2    5    0
+ 52 b            51     variable    real            0      True    2    6    0
+ 53 resta        50     function    real            4      True    1    8    0
+ 54 a             0     variable    real            0      True    2    5    0
+ 55 b            54     variable    real            0      True    2    6    0
+ 56 multiplica   53     function    real            5      True    1   16    0
+ 57 a             0     variable    real            0      True    2    5    0
+ 58 b            57     variable    real            0      True    2    6    0
+ 59 division     56     function    real            6      True    1   20    0
+ 60 a             0     variable    real            0      True    2    5    0
+ 61 b            60     variable    real            0      True    2    6    0
+ 62 menu         59     procedure   notyp           7      True    1   37    0
+
+Generated P-code
+
+    0     ldcon.i      0        10          ;8
+    1     wrstr        0         0          ;8
+    2     ldval.r      2         5          ;8
+    3     ldval.r      2         6          ;8
+    4     addop.r      0         0          ;8
+    5     wrval.r      0         0          ;8
+    6     wrlin        0         0          ;8
+    7     rfunc.r      0         0          ;8
+    8     ldcon.i      0        10          ;13
+    9     wrstr        0        10          ;13
+   10     ldval.r      2         5          ;13
+   11     ldval.r      2         6          ;13
+   12     subop.r      0         0          ;13
+   13     wrval.r      0         0          ;13
+   14     wrlin        0         0          ;13
+   15     rfunc.r      0         0          ;13
+   16     ldcon.i      0        10          ;18
+   17     wrstr        0        20          ;18
+   18     wrlin        0         0          ;18
+   19     rfunc.r      0         0          ;18
+   20     ldval.r      2         6          ;23
+   21     ldcon.i      0         0          ;23
+   22     float        0         0          ;23
+   23     releq.r      0         0          ;23
+   24     jmpiz        0        29          ;23
+   25     ldcon.i      0        30          ;25
+   26     wrstr        0        30          ;25
+   27     wrlin        0         0          ;25
+   28     jmpuc        0        36          ;26
+   29     ldcon.i      0        10          ;27
+   30     wrstr        0        60          ;27
+   31     ldval.r      2         5          ;27
+   32     ldval.r      2         6          ;27
+   33     divop.r      0         0          ;27
+   34     wrval.r      0         0          ;27
+   35     wrlin        0         0          ;27
+   36     rfunc.r      0         0          ;27
+   37     ldcon.i      0        22          ;32
+   38     wrstr        0        70          ;32
+   39     wrlin        0         0          ;32
+   40     ldcon.c      0         0          ;33
+   41     ldcon.c      0         0          ;34
+   42     wrval.c      0         0          ;34
+   43     wrlin        0         0          ;34
+   44     ldcon.i      0         8          ;35
+   45     wrstr        0        92          ;35
+   46     wrlin        0         0          ;35
+   47     ldcon.i      0         9          ;36
+   48     wrstr        0       100          ;36
+   49     wrlin        0         0          ;36
+   50     ldcon.i      0        14          ;37
+   51     wrstr        0       109          ;37
+   52     wrlin        0         0          ;37
+   53     ldcon.i      0        10          ;38
+   54     wrstr        0       123          ;38
+   55     wrlin        0         0          ;38
+   56     ldcon.i      0         8          ;39
+   57     wrstr        0       133          ;39
+   58     wrlin        0         0          ;39
+   59     ldcon.c      0         0          ;40
+   60     wrval.c      0         0          ;40
+   61     wrlin        0         0          ;40
+   62     rproc        0         0          ;40
+   63     ldadr        1         7          ;43
+   64     ldcon.i      0         0          ;44
+   65     store.i      0         0          ;44
+   66     ldval.i      1         7          ;45
+   67     ldcon.i      0         5          ;45
+   68     releq.i      0         0          ;45
+   69     jmpiz        0       101          ;45
+   70     mkstk        0        62          ;46
+   71     calls        0         4          ;46
+   72     ldcon.c      0         0          ;48
+   73     ldval.i      1         7          ;49
+   74     wrval.i      0         0          ;49
+   75     wrlin        0         0          ;49
+   76     ldcon.c      0         0          ;50
+   77     ldval.r      1         5          ;51
+   78     wrval.r      0         0          ;51
+   79     wrlin        0         0          ;51
+   80     ldcon.c      0         0          ;52
+   81     ldval.r      1         6          ;53
+   82     wrval.r      0         0          ;53
+   83     wrlin        0         0          ;53
+   84     ldval.i      1         7          ;54
+   85     ldcon.i      0         1          ;54
+   86     releq.i      0         0          ;54
+   87     jmpiz        0        88          ;54
+   88     ldval.i      1         7          ;55
+   89     ldcon.i      0         2          ;55
+   90     releq.i      0         0          ;55
+   91     jmpiz        0        92          ;55
+   92     ldval.i      1         7          ;56
+   93     ldcon.i      0         3          ;56
+   94     releq.i      0         0          ;56
+   95     jmpiz        0        96          ;56
+   96     ldval.i      1         7          ;57
+   97     ldcon.i      0         4          ;57
+   98     releq.i      0         0          ;57
+   99     jmpiz        0       100          ;57
+  100     jmpuc        0        66          ;57
+  101     stopx        0         0          ;58

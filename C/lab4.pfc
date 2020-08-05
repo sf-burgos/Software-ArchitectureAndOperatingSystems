@@ -1,0 +1,35 @@
+program lab4;
+var
+  casos : Integer;
+  n,r,r2,i : Integer;
+procedure f( n : Integer);
+begin
+  r := (n * (n+1)) div 2;
+  writeln(r);
+end;
+
+procedure sinFormula( n : Integer);
+var
+  j : Integer;
+begin
+  r2 := 0;
+  for j := 1 to n do
+    begin
+      r2 := r2 + j;
+    end;
+  writeln(r2);
+end;
+procedure salida( n : Integer);
+cobegin
+  f(n);
+  sinFormula(n);
+coend;
+  
+begin
+  readln(casos);
+  for i := 1 to casos do
+    begin
+      readln(n);
+      salida(n);
+    end;
+end.

@@ -1,0 +1,39 @@
+program ejercicio4;
+var
+	i:integer; 
+	vector:array[0..1000]of integer;
+	t:integer;
+procedure leer;
+begin
+	writeln('Tamaño del vector:');
+	readln(t);
+	writeln('Numeros del vector:');
+	for i:=0 to t-1 do
+	begin
+		readln(vector[i]);
+	end;
+end;
+procedure sumar;
+var 
+	suma:integer;
+begin
+	suma:=vector[0];
+	for i:=1 to t-1 do
+	begin
+		suma:= suma+vector[i];
+	end;
+	writeln('Suma:',suma);
+end;
+procedure escribir;
+begin
+	writeln('Vector:');
+	for i:=0 to t-1 do
+	begin
+		writeln(vector[i]);
+	end;
+end;
+begin
+	leer;
+	sumar;
+	escribir;
+end.
